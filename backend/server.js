@@ -53,7 +53,7 @@ const isOriginAllowed = (origin) => {
   if (!origin) return true;
   if (allowedOriginsSet.has(origin)) return true;
   if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) return true;
-  if (/^https:\/\/alumni-mentor-project.*\.vercel\.app$/.test(origin)) return true;
+  if (/^https:\/\/.*\.vercel\.app$/.test(origin)) return true;
   return false;
 };
 

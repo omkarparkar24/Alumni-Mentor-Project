@@ -1,6 +1,20 @@
 import { setSession } from './storage';
+const getApiBase = () => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL.replace(/\/$/, '');
+  }
+  if (
+    typeof window !== 'undefined' &&
+    window.location &&
+    window.location.hostname !== 'localhost' &&
+    window.location.hostname !== '127.0.0.1'
+  ) {
+    return '/api';
+  }
+  return 'http://localhost:5000/api';
+};
 
-const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
+const API_BASE = getApiBase();
 const TOKEN_KEY = 'mc_api_token';
 
 export const getToken = () => localStorage.getItem(TOKEN_KEY);
