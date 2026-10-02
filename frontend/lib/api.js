@@ -1,6 +1,6 @@
 import { setSession } from './storage';
 
-const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
+const API_BASE = (import.meta.env.VITE_API_URL || 'https://alumni-mentor-project-sigma.vercel.app/api').replace(/\/$/, '');
 const TOKEN_KEY = 'mc_api_token';
 
 export const getToken = () => localStorage.getItem(TOKEN_KEY);
